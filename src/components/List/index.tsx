@@ -1,9 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../store';
 import Item from '../Item';
 
 const List = (props: any) => {
-  return <UnorderedList {...props}>아이템 영역</UnorderedList>;
+  const todoList = useSelector((state: RootState) => state.todo.todoList);
+
+  return (
+    <UnorderedList {...props}>
+      {todoList.map((item) => (
+        <Item key={item.id} id={item.id} content={item.content} complete={item.complete} />
+      ))}
+    </UnorderedList>
+  );
 };
 
 export default List;

@@ -3,14 +3,18 @@ import './App.css';
 import styled from 'styled-components';
 import List from './components/List';
 import ItemForm from './components/ItemForm';
+import { Provider } from 'react-redux';
+import store from './store';
 
 function App() {
   return (
-    <Container>
-      <Header>ToDo</Header>
-      <ItemForm />
-      <List />
-    </Container>
+    <Provider store={store}>
+      <Container>
+        <Header>ToDo</Header>
+        <ItemForm />
+        <List />
+      </Container>
+    </Provider>
   );
 }
 

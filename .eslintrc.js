@@ -21,7 +21,7 @@ module.exports = {
   },
   plugins: ['react', 'react-hooks', '@typescript-eslint', 'import'],
   rules: {
-    'prettier/prettier': ['warning', { endOfLine: 'auto' }],
+    'prettier/prettier': ['warn', { endOfLine: 'auto' }],
   },
   settings: {
     react: {

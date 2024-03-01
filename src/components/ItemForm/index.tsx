@@ -1,18 +1,21 @@
-import React from 'react';
+import React, { FormEvent, useState } from 'react';
 import styled from 'styled-components';
-import { FormEvent, useState } from 'react';
+import { useAppDispatch } from '../../store';
+import { addTodo } from '../../store/todoSlice';
 
 const ItemForm = (props: any) => {
-  const [task, setTask] = useState('');
+  const dispatch = useAppDispatch();
+  const [content, setContent] = useState('');
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    setTask('');
+    setContent('');
+    dispatch(addTodo(content));
   };
 
   return (
     <Form {...props} onSubmit={handleSubmit}>
-      <Input type="text" value={task} onChange={(e) => setTask(e.target.value)} required />
+      <Input type="text" value={content} onChange={(e) => setContent(e.target.value)} required />
       <SumbitButton>Add</SumbitButton>
     </Form>
   );
