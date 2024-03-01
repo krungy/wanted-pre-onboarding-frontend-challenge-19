@@ -1,19 +1,22 @@
 import React from 'react';
-import './App.css';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
 import styled from 'styled-components';
+import './App.css';
 import List from './components/List';
 import ItemForm from './components/ItemForm';
-import { Provider } from 'react-redux';
-import store from './store';
+import store, { persistor } from './store';
 
 function App() {
   return (
     <Provider store={store}>
-      <Container>
-        <Header>ToDo</Header>
-        <ItemForm />
-        <List />
-      </Container>
+      <PersistGate loading={null} persistor={persistor}>
+        <Container>
+          <Header>ToDo</Header>
+          <ItemForm />
+          <List />
+        </Container>
+      </PersistGate>
     </Provider>
   );
 }
