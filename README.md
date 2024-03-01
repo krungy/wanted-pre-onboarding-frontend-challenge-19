@@ -46,4 +46,4 @@ npm run start
 - ToDo 작성
 - ToDo 완료 토글
 - ToDo 제거
-- ToDo 리스트 새로고침 유지 (로컬 스토리지)
+- ToDo 리스트 데이터 유지 (redux-persist, 로컬 스토리지)
